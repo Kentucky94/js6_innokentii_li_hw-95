@@ -46,6 +46,14 @@ class CocktailCreatePage extends Component {
     this.setState({ingredients: newIngredients})
   };
 
+  removeIngredient = index => {
+    const newIngredients = [...this.state.ingredients];
+
+    newIngredients.splice(index, 1);
+
+    this.setState({ingredients: newIngredients});
+  };
+
   onIngredientChange = (event, index, name) => {
     const newIngredients = [...this.state.ingredients];
 
@@ -75,6 +83,7 @@ class CocktailCreatePage extends Component {
           value={ingredient.amount}
           onChange={(event) => this.onIngredientChange(event, index, 'amount')}
         />
+        <Button onClick={() => this.removeIngredient(index)}>Remove</Button>
       </div>
     ));
 

@@ -14,6 +14,7 @@ import cocktailsReducer from "./store/reducers/cocktailsReducer";
 import usersReducer from "./store/reducers/usersReducer";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 const history = createBrowserHistory();
 
