@@ -75,6 +75,16 @@ router.get('/published', async (req, res) => {
   }
 });
 
+router.get('/:id', async (req, res) => {
+  try{
+    const cocktail = await Cocktail.findOne({_id: req.params.id});
+
+    return res.send(cocktail);
+  }catch(error){
+    return res.status(400).send(error);
+  }
+});
+
 router.post('/publish/:id', [auth, permit('admin')], async (req, res) => {
   try{
     const cocktail = await Cocktail.findOne({_id: req.params.id});
